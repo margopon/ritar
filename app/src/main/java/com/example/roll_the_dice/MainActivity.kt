@@ -4,6 +4,7 @@ import android.media.AudioManager
 import android.media.SoundPool
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.ImageView
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.delay
@@ -14,12 +15,25 @@ import kotlin.random.nextInt
 class MainActivity : AppCompatActivity() {
 
     private var soundPool: SoundPool? = null
-    private var soundId1: Int = 0
-    private var soundId2: Int = 0
-    private var soundId3: Int = 0
-    private var soundId4: Int = 0
-    private var soundId5: Int = 0
-    private var soundId6: Int = 0
+    private var soundId1 = 0
+    private var soundId2 = 0
+    private var soundId3 = 0
+    private var soundId4 = 0
+    private var soundId5 = 0
+    private var soundId6 = 0
+    private var soundId7 = 0
+    private var soundId8 = 0
+    private var soundId9 = 0
+    private var soundId10 = 0
+    private var soundId11 = 0
+    private var soundId12 = 0
+    private var soundId13 = 0
+    private var soundId14 = 0
+    private var soundId15 = 0
+    private var soundId16 = 0
+    private var soundId17 = 0
+    private var soundId18 = 0
+
     var play_sound_bufffer = 0
 
 
@@ -100,7 +114,23 @@ class MainActivity : AppCompatActivity() {
         soundId4 = soundPool!!.load(baseContext, R.raw.four, 1)
         soundId5 = soundPool!!.load(baseContext, R.raw.five, 1)
         soundId6 = soundPool!!.load(baseContext, R.raw.six, 1)
+        soundId7 = soundPool!!.load(baseContext, R.raw.seven, 1)
+        soundId8 = soundPool!!.load(baseContext, R.raw.eight, 1)
+        soundId9= soundPool!!.load(baseContext, R.raw.nine, 1)
+        soundId10 = soundPool!!.load(baseContext, R.raw.ten, 1)
+        soundId11 = soundPool!!.load(baseContext, R.raw.eleven, 1)
+        soundId12 = soundPool!!.load(baseContext, R.raw.twelve, 1)
 
+        soundId13 = soundPool!!.load(baseContext, R.raw.rabochiy, 1)
+        soundId14 = soundPool!!.load(baseContext, R.raw.rabochiy2, 1)
+        soundId15 = soundPool!!.load(baseContext, R.raw.crash, 1)
+        soundId16 = soundPool!!.load(baseContext, R.raw.hihatclosed1, 1)
+        soundId17 = soundPool!!.load(baseContext, R.raw.hihatopened1, 1)
+        soundId18 = soundPool!!.load(baseContext, R.raw.bochka, 1)
+
+        findViewById<ImageView>(R.id.btn_four).setOnClickListener{ MainScope().launch { playSound(18) }}
+        findViewById<ImageView>(R.id.btn_five).setOnClickListener{ MainScope().launch { playSound(16) }}
+        findViewById<ImageView>(R.id.btn_six).setOnClickListener{ MainScope().launch { playSound(13) }}
 
     }
     fun playSound(sound: Int) {
@@ -112,8 +142,31 @@ class MainActivity : AppCompatActivity() {
             4 -> soundId = soundId4
             5 -> soundId = soundId5
             6 -> soundId = soundId6
+            7 -> soundId = soundId7
+            8 -> soundId = soundId8
+            9 -> soundId = soundId9
+            10 -> soundId = soundId10
+            11 -> soundId = soundId11
+            12 -> soundId = soundId12
+
+            13 -> soundId = soundId13
+            14 -> soundId = soundId14
+            15 -> soundId = soundId15
+            16 -> soundId = soundId16
+            17 -> soundId = soundId17
+            18 -> soundId = soundId18
             else -> print("Error!")
         }
         soundPool?.play(soundId, 1F, 1F, 0, 0, 1F)
     }
+
+    fun PlaySound18(view: View)
+    {soundPool?.play(soundId18, 1F, 1F, 0, 0, 1F)}
+
+    fun PlaySound16(view: View)
+    {soundPool?.play(soundId16, 1F, 1F, 0, 0, 1F)}
+
+    fun PlaySound13(view: View)
+    {soundPool?.play(soundId13, 1F, 1F, 0, 0, 1F)}
+
 }
